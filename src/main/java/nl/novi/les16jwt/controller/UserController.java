@@ -6,6 +6,7 @@ import nl.novi.les16jwt.model.User;
 import nl.novi.les16jwt.repository.RoleRepository;
 import nl.novi.les16jwt.repository.UserRepository;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -29,6 +30,13 @@ public class UserController {
         this.roleRepos = roleRepos;
         this.encoder = encoder;
     }
+
+    @GetMapping("/users")
+    public String requestUser(@RequestBody UserDto userDto) {
+
+    }
+
+
     @PostMapping("/users")
     public String createUser(@RequestBody UserDto userDto) {
         User newUser = new User();
